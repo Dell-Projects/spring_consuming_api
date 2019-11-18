@@ -4,6 +4,7 @@ import consuming.api.consumingapi.configuration.FeignConfiguration;
 import consuming.api.consumingapi.models.Post;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -17,5 +18,10 @@ public class FeignController {
     @GetMapping("/feign")
     public List<Post> getAllPosts() {
         return feignClient.getPosts();
+    }
+
+    @GetMapping("/feign/{postId}")
+    public Post getPostById(@PathVariable long postId) {
+        return feignClient.getPostById(postId);
     }
 }

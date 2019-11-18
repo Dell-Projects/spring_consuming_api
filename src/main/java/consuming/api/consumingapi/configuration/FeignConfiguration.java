@@ -16,5 +16,5 @@ public interface FeignConfiguration {
     List<Post> getPosts();
 
     @RequestMapping(method = RequestMethod.GET, value = "/posts/{postId}", produces = "application/json")
-    Post getPostById(@PathVariable("postId") Long postId);
+    Post getPostById(@PathVariable long postId);
 }
